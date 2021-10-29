@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="Chandan Mukherjee">
+  <meta name="Keywords" content="Search">
+  <meta name="Description" content="Admin Search Page">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <title>Admin Search</title>
+</head>
+
+<body>
+  <!-- main app container -->
+  <div class="container" style="text-align: center;">
+    <br />
+    <br />
+    <nav>
+      <b>
+        <a href="/afteradminlogin">ADMIN HOME</a> |
+        <a href="/viewall">VIEW ALL</a> |
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search </a>
+        |<div class="dropdown-menu">
+            <a href="/search" class="dropdown-item">Search Student</a>
+            <a href="/searchmentor" class="dropdown-item">Search Mentor</a>
+        </div>
+        <a href="/admentor">ADD MENTOR</a> |
+        <a href="/delete">DELETE</a> |
+        <a href="/logout">LOGOUT</a>
+      </b>
+    </nav>
+    <br />
+    <br />
+
+
+    <div class="row">
+      <div class="col-md-6 col-sm-8 mx-auto">
+        <div class="card">
+          <div class="card-body" style="background-color: #eeefff">
+            <div class="mt-2 text-center">
+              <h3 style="color: brown;">SEARCH MENTOR</h3>
+            </div>
+            <div align = "center">
+			   <h5 style="color:red">
+			      <b> {{ errormsg }} </b>
+			   </h5>
+			</div>
+
+            <form action="/searchmentor" method="post">
+
+              <div class="form-group">
+                <label for="email" class="fw-bold text-uppercase text-primary">Email Id Or Department*</label>
+                <input type="text" name="email" class="form-control" placeholder="Enter Email Id or Department">
+                
+              </div>
+
+              <br />
+             
+              <input type="submit" class="btn btn-success btn-block" value="SEARCH">
+            </form>
+
+          </div> <!-- Card Body End -->
+        </div> <!-- Card End -->
+      </div> <!-- Col alignment end -->
+    </div> <!-- Row End -->
+	
+	<br/>
+	<br/>
+	
+	{% if show_results %}
+    <div align = "center">
+	  <table class="table table-hover table-bordered">
+	   <tr>
+      <th> Name </th>
+	    <th> Email </th>
+		  <th> Department </th>
+		 
+	 </tr>
+       <tr>
+        <td> {{ userdata['name'] }} </td>
+         <td> {{ userdata['email'] }} </td>
+		 <td> {{ userdata['department'] }} </td>
+		
+	   </tr>
+     
+	   <table>
+	</div>
+  {% endif %}
+  
+	
+  </div> <!-- Container End -->
+  
+
+</body>
+
+</html>

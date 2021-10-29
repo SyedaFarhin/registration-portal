@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="Chandan Mukherjee">
+  <meta name="Keywords" content="View All User">
+  <meta name="Description" content="Admin View All User Page">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <title>Admin Search</title>
+</head>
+
+<body>
+  <!-- main app container -->
+  <div class="container" style="text-align: center;">
+    <br />
+    <br />
+    <nav>
+      <b>
+        <b>
+            <a href="/afteradminlogin">ADMIN HOME</a> |
+        
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">View </a>
+          |<div class="dropdown-menu">
+            <a href="/viewStudentByMentor" class="dropdown-item"> Student</a>
+              <a href="/viewmentor" class="dropdown-item">  Mentor</a>
+              </div>
+        
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search </a>
+          |<div class="dropdown-menu">
+              <a href="/search" class="dropdown-item">Student</a>
+              <a href="/searchmentor" class="dropdown-item"> Mentor</a>
+          </div>
+        <a href="/admentor">ADD MENTOR</a> |
+        <a href="/assignmentor">ASSIGN MENTOR</a> |
+        <a href="/delete">DELETE</a> |
+        <a href="/logout">LOGOUT</a> |
+         </b>
+          
+      
+        
+        
+      </b>
+    </nav>
+    <br />
+    <br />
+    <div class="mt-2 text-center">
+       <h3 style="color: brown;">ALL STUDENT DETAILS</h3>
+    </div>
+	
+           <div align = "center">
+            <table class="table table-hover table-bordered">
+             <tr>
+              <th> Name </th>
+              <th>Password </th>
+              <th>Gender </th>
+              <th>Email </th>
+              <th>Roll No </th>
+              <th>Phone No </th>
+              <th>Address</th>
+              <th>Batch</th>
+              <th>Department</th>
+              </tr>
+                   {% for uobj in userdata %}
+            <tr>
+             <td> {{ uobj['name'] }} </td>
+             
+             <td> {{ uobj['password'] }} </td>
+             <td> {{ uobj['gender'] }} </td>
+             <td> {{ uobj['email'] }} </td>
+             <td> {{ uobj['rollno'] }} </td>
+             <td> {{ uobj['phnno'] }} </td>
+             <td> {{ uobj['address'] }} </td>
+             <td> {{ uobj['batch'] }} </td>
+             <td> {{ uobj['department'] }} </td>
+             <td><form action="/delete1" method="post">
+              <input type="hidden" name="email" value="{{ uobj['email'] }}">
+              <input type="hidden" name="rollno" value="{{ uobj['rollno'] }}">
+              <input type="submit" value="DELETE" class="btn btn-danger">
+              </form>
+            </td>
+             </tr>
+                   {% endfor %}
+                   </table>
+                   </div>
+                   
+
+                   </div> <!-- Container End -->
+ </body>
+
+</html>

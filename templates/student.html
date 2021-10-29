@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.usebootstrap.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdn.usebootstrap.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+  
+<title>Student Form</title>
+<style>
+    .register{
+  background: -webkit-linear-gradient(left,rgba(63, 247, 247, 0.623), #027c91);
+  margin-top: 3%;
+  padding: 3%;
+}
+</style>
+</head>
+<body>
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/branches">Branches</a></li>
+      
+      <li><a href="/events">Events</a></li>
+      <li class="drop-down"><a href="">Login</a>
+        <ul>
+          <li><a href="/studentlogin">Student</a></li>
+          <li><a href="/mentorlogin">Mentor</a></li>
+          <li><a href="/adminlogin">Admin</a></li>
+          
+        </ul>
+        </li>
+        <li><a href="/studentreg">Student Register</a></li>
+      <li><a href="/aboutus">About</a></li>
+      <li><a href="/contactus">Contact</a></li><br/><br/>
+
+    </ul>
+  </nav><!-- .nav-menu -->
+    
+    
+                  
+        
+      <!-- .nav-menu -->
+    <br/><div align = "center">
+        <h5 style="color:#027c91">
+            <b> {{ msg }} </b>
+        </h5>
+    </div>
+ 
+      
+
+    <form action = "/studentreg" method = "post">  
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        
+                        <a href="/studentlogin" style="color:rgb(5, 52, 153)">Login</a>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                              <div align="center">
+                                <h3 class="register-heading">Registration Form</h3><br/><br/>
+                              </div>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your Name *" name="sname" value=""  required/>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <input type="password" class="form-control" placeholder="Password *" name="spassword" value="" required />
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Department*" name="sdep" value=""  required/>
+                                    </div>
+                                      
+                                      <div class="form-group">
+                                          <div class="maxl">
+                                              <label class="radio inline"> 
+                                                  <input type="radio" name="sgender" value="male" checked>
+                                                  <span> Male </span> 
+                                              </label>
+                                              <label class="radio inline"> 
+                                                  <input type="radio" name="sgender" value="female">
+                                                  <span>Female </span> 
+                                              </label>
+                                          </div>
+                                      </div>
+                                      
+                                        <input list="browsers" name="sbatch" placeholder="Batch*" style="height:35px; width:150px;"  />
+                                        <datalist id="browsers">
+                                          <option value="2018-2022">
+                                          <option value="2019-2023">
+                                          <option value="2020-2024">
+                                         
+                                        </datalist>
+                                    </div>
+                                  
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Your Email *" name="semail" value=""  required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text"  minlength="12" maxlength="12" name="srollno" class="form-control" placeholder="Your Roll No *" value="" required />
+                                        </div>
+                                        <div class="form-group">
+                                          <input type="text"  minlength="10" maxlength="10" name="sphnno" class="form-control" placeholder="Your Phone No *" value="" required />
+                                      </div>
+                                        
+                                        
+                                        <div class="mb-3">
+                                            
+                                            
+                                            <textarea name="saddress" placeholder="Write your Address Here" rows="4" cols="35"  required></textarea>
+                                          </div>
+
+                                          <input type="hidden" name="name" value="NOT ASSIGNED">
+                                          <input type="hidden" name="email" value="NOT ASSIGNED">
+                                        
+                                          
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+    </body>
+</html>
